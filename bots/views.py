@@ -7,8 +7,16 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 
+# from BotHive.models import Cluster
+# from BotHive.models import Pods
+
 def index(request):
+    if request.method == 'POST':
+        form = Bot_Type(request.'POST')
+        if form.is_valid():
+            form.save
     return HttpResponse("bots are ready to be assigned.")
+
 list1 = ['Bot-Type', 'Serial Number' , 'IP Address' , 'Desired CLuster Location']
 Bot_Type = ['Taz 6' , 'Taz 5', 'Mini' , 'NinjaFLex Mini'],
 Serial_Number = [raw_input()],
@@ -26,5 +34,6 @@ for ip in ip_Adress:
     print "ip address:" , [raw_input()],
     #ip.save,
 
-def MyView(request):
-    query_results = YourModel.objects.all()
+def index(request):
+    if request.mthod == 'POST':
+        form =

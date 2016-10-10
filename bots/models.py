@@ -43,14 +43,25 @@ class BotType(models.Model):
 #
 # class IpAddress(models.Model):
 #     ip_address = models.CharField(max_length=20)
+def __unicode__(self):
+    return 'BotHive - {} - {}'.format(self.title, self.ip_adress)
+
+def
 
 class Cluster (models.Model):
     """needs to generate a list, with questions of how large do you want a single cluster, give it a variable range for now of between 1 and 20 and allow you to name that cluster.
     Once cluster parameters are established the next question it asks is select the bots you wish to assign to each cluster; this will link to the previous bots page and allow you to select from that list, making a new list and saving said list."""
-    pass
+
+
 class Pods (models.Model):
     Pods = models.IntegerField(default=1, max_length=100)
+    BotType = models.CharField(choices=BOT_TYPE_CHOICES)
+    SerialNumber = models.IntegerField(default=1, max_length=100)
+    #IP = models.IntegerField()
 
+    def __unicode__(self):
+        return 'pods -- {} -- {} -- {} -- {}'.format (self.BotType.pods, self.BotType, self.SerialNumber,
+                                                      self.IP)
 
 # add pods catagory here and populate it with the ability to define how many printers are in this pod
 # Link bots page through many to many to jobs
