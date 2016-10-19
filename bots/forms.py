@@ -1,9 +1,10 @@
 from django import forms
 
-from hello_world.models import Rating
+from BotHive.models import Printer_Type
+from BotHive.models import Pod
 
-
-class RatingForm(forms.ModelForm):
+#ask what needs to live here and why Printer_type and pod don't accept
+class Printer_TypeForm(forms.ModelForm):
     class Meta:
-        model = printer_name
+        model = 'printer_name'
         fields = ['printer type', 'plastic color' ]

@@ -1,8 +1,9 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from bots.forms import RatingForm
-from bots.models import BotType, Cluster, Pods, PRINTER_TYPES
+from bots.forms import Printer_TypeForm
+from bots.models import Printer_Type
+from bots.models import Pod
 
 
 # S = serial_number

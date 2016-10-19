@@ -8,63 +8,38 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+#ask about string.ascii
+# printer types, plastic type, serial number, number in a pod, number of pods in cluster
+list1 = ((1, 'Mini'), (2 , 'Taz 5'), (3, 'Taz 6'), (4, 'NinjaFlex Mini'))
+list2 = ((1, 'Black ABS'), (2, 'Green ABS'), (3, 'Silver ABS'), (4, 'Black NinjaFlex'), (5, 'Green NinjaFlex'), (6, 'Pink NGen Test'))
+list3 = list(string.ascii_uppercase)
+class Printer_Type(models.Model):
+    # This is the specific company model EX Lulxbot Taz 5, Taz 6, Mini, See Me CNC delta, etc.
 
-PRINTER_TYPES = ((1, 'mini'), (2 , 'Taz 5'), (3, 'Taz 6'), (4, 'NinjaFlex Mini'))
+    type = models.CharField(default='Mini', choices=list1)
+    serial = models.IntegerField(default=1, max_length=20)
+    plastic = models.CharField(default='Black ABS', choices=list2)
+    created = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now=True)
 
-printer_name = models.CharField(max_length=50)
-TAZ_5 = 'Taz 5'
-TAZ_6 = 'Taz 6'
-MINI = 'Mini'
-FLEXY = 'Mini NinjaFLex'
-BOT_TYPE_CHOICES = (
-    (TAZ_6, 'Taz_6'),
-    (TAZ_5, 'Taz_5'),
-    (MINI, 'Mini'),
-    (FLEXY, 'Mini_NinjaFlex')
-)
-
-class BotType(models.Model):
-# This is the specific company model EX Lulxbot Taz 5, Taz 6, Mini, See Me CNC delta, etc.
-    BotType = models.CharField( max_length= 10)
-    cluster = models.ForeignKey('pods', on_delete=models.CASCADE,
-        )
-
-
-    #add a field printer bot to bot type
-    #foreign key back to cluster
-    #add the serial number and ip address to this class.
-
-    # def __init__ (self, verbose_name=None, name=None, min_value=None, max_value=None,
-    #     self.min_value, self.max_value = min_value, max_value
-    #     models.IntegerField.__init__(self, verbose_name, name, **kwargs)
-
-
-# class PrinterBot(models.Model):
-#    Serial_number = models.CharField(max_length=50)
-#
-# #foreign key back to cluster
-#
-# class IpAddress(models.Model):
-#     ip_address = models.CharField(max_length=20)
     def __unicode__(self):
-        return 'BotHive - {} - {}'.format(self.title, self.ip_adress)
+        return 'Printer_Type -- {} -- {} -- {}'.format(self.type, self.serial, self.plastic)
+    #def select_printer(self):
+
+
+class Pod(models.Model):
+    #pod has a letter value, then the number of printers, specific printers, plastic type
+    pod_id = models.string.ascii.uppercase(default='A')
+    count = models.IntegerField(default = 1 , max_length=20)
+    printer_type = models.ForeignKey(Printer_Type)
+
+    def __unicode__(self):
+        return 'Pod -- {} -- {} -- {}'.format(self.pod_id, self.count, self.printer_type)
 
 
 class Cluster (models.Model):
     """needs to generate a list, with questions of how large do you want a single cluster, give it a variable range for now of between 1 and 20 and allow you to name that cluster.
     Once cluster parameters are established the next question it asks is select the bots you wish to assign to each cluster; this will link to the previous bots page and allow you to select from that list, making a new list and saving said list."""
 
-
-class Pods (models.Model):
-    Pods = models.IntegerField(default=1, max_length=100)
-    BotType = models.CharField(choices=BOT_TYPE_CHOICES)
-    SerialNumber = models.IntegerField(default=1, max_length=100)
-    #IP = models.IntegerField()
-
-    def __unicode__(self):
-        return 'pods -- {} -- {} -- {} -- {}'.format (self.BotType.pods, self.BotType, self.SerialNumber,
-                                                      self.IP)
-
-# add pods catagory here and populate it with the ability to define how many printers are in this pod
 # Link bots page through many to many to jobs
 # file field selects files on a desktop

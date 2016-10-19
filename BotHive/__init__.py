@@ -1,6 +1,8 @@
 from django import forms
 
-from BotHive.models import Rating
+#ask what to do here
+from BotHive.models import Printer_Type
+
 
 
 class RatingForm(forms.ModelForm):

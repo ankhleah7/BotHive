@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'BotHivePy.urls'
+ROOT_URLCONF = 'BotHive.urls'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
@@ -84,7 +84,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.templates.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'BotHivePy', 'templates')
+            os.path.join(BASE_DIR, 'BotHive', 'templates')
          ],
 
          'APP_DIRS': True,
@@ -99,7 +99,7 @@ TEMPLATES = [
     }
 ]
 
-WSGI_APPLICATION = 'BotHivePy.wsgi.application'
+WSGI_APPLICATION = 'BotHive.wsgi.application'
 
 DATABASES = {
     'default': {
