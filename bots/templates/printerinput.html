@@ -5,7 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-    {{  printer_form }}
+<form method="post" action="">
+    {{  printer_form.as_p }}
+    <input type="submit" name="Submit" value="Register" />
+           {%  csrf_token %}
+</form>
 
 </body>
 </html>
