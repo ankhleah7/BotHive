@@ -7,4 +7,12 @@ from bots.models import Pod
 class Printer_TypeForm(forms.ModelForm):
     class Meta:
         model = Printer_Type
-        fields = ['serial', 'plastic' ]
+        fields  = ['serial', 'plastic' , 'series' ]
+
+
+
+"""import the model you want to use from your models. use (form.Forms):
+use class MEta: indicate your model. then select the fields which is the text promt
+that allows them to place things into your list. classes are made in models and imported into views.
+forms follow the class___(form.FORMS):
+class Meta: model = the class your using, fields = list with option ['']"""
