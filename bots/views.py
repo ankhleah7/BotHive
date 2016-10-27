@@ -36,12 +36,14 @@ def index(request):
 #
 #     for ip in ip_Adress:
 #         print "ip address:" , [raw_input()],
-
+#http://localhost:8000/bots/printerinput/
 
 def printer_input(request):
     if request.method == 'POST':
-        printer_form = Printer_TypeForm()
-        if printer_form. is_valid():
+        printer_form = Printer_TypeForm(request.POST)
+        if printer_form.is_valid():
+            print 'Hello World'
+
             printer_form.save()
 
     else:
