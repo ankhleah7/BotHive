@@ -9,7 +9,10 @@ class Printer_TypeForm(forms.ModelForm):
         model = Printer_Type
         fields  = ['serial', 'plastic' , 'series' ]
 
-
+class pod_order_form(forms.ModelForm):
+    class Meta:
+        model = Pod
+        fields = ['pod_id', 'count', 'printer_type']
 
 """import the model you want to use from your models. use (form.Forms):
 use class MEta: indicate your model. then select the fields which is the text promt

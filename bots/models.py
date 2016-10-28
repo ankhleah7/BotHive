@@ -1,27 +1,18 @@
 from __future__ import unicode_literals
 
-"""These pieces of info will be kept on a seperate dict that will store all these files and allow you to call them back."""
-"""I need to figure out if i make a for loop statement at the end of each class or on the bottom and find a way to make a list that can be added to dynamically."""
-"""Ask if looped statements need to be diefined in their class and then combined in lower code."""
-"""Ask how to store these new lists and a way to call them later"""
-
-
 from django.db import models
 import string
 
-
-
-#ask about string.ascii
-# printer types, plastic type, serial number, number in a pod, number of pods in cluster
+#printer types, plastic type, serial number, number in a pod, number of pods in cluster
 list1 = (('1', 'Mini'), ('2' , 'Taz 5'), ('3', 'Taz 6'), ('4', 'NinjaFlex Mini'))
 list2 = (('1', 'Black ABS'), ('2', 'Green ABS'), ('3', 'Silver ABS'),
          ('4', 'Black NinjaFlex'), ('5', 'Green NinjaFlex'),
          ('6', 'Pink NGen Test'))
-list3 = (('a', 'A'), ('b', 'B'), ('c', 'C'), ('d', 'D'), ('e', 'E'), ('f', 'F'),
-         ('g', 'G'), ('h', 'H'), ('i', 'I'), ('j', 'J'), ('k', 'K'), ('l', 'L'),
-         ('m', 'M'), ('n', 'N'), ('o', 'O'), ('p', 'P'), ('q', 'Q'), ('r', 'R'),
-         ('s', 'S'), ('t', 'T'), ('u', 'U'), ('v', 'V'), ('w', 'W'), ('x', 'X'),
-         ('y', 'Y'), ('z', 'Z'))
+list3 = (('1', 'A'), ('2', 'B'), ('3', 'C'), ('4', 'D'), ('5', 'E'), ('6', 'F'),
+         ('7', 'G'), ('8', 'H'), ('9', 'I'), ('10', 'J'), ('11', 'K'), ('12', 'L'),
+         ('13', 'M'), ('14', 'N'), ('15', 'O'), ('16', 'P'), ('17', 'Q'), ('18', 'R'),
+         ('19', 'S'), ('20', 'T'), ('21', 'U'), ('22', 'V'), ('23', 'W'), ('24', 'X'),
+         ('25', 'Y'), ('26', 'Z'))
 # list4 =
 
 class Printer_Type(models.Model):
@@ -35,7 +26,7 @@ class Printer_Type(models.Model):
     def __unicode__(self):
         return 'Pod -- {} -- {} -- {}'.format(
             dict(list1)[self.series], self.serial, dict(list2)[self.plastic])
-            # dict(list1).get(self.series, ''), self.serial, dict(list3).get(self.plastic))
+            #dict(list1).get[self.series], self.serial, dict(list2).get[self.plastic]')'
     #def select_printer(self):
 
 

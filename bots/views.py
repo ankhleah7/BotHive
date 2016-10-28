@@ -19,23 +19,6 @@ def index(request):
             form.save()
     return HttpResponse("bots are ready to be assigned.")
 
-
-# def random_stuff_in_a_function():
-#     list1 = ['Bot-Type', 'Serial Number' , 'IP Address' , 'Desired CLuster Location']
-#     Bot_Type = ['Taz 6' , 'Taz 5', 'Mini' , 'NinjaFLex Mini'],
-#     Serial_Number = [raw_input()],
-#     ip_Adress = [raw_input()]
-#
-#     for bot in Bot_Type:
-#         print "Select a printer",
-#         #bot.save,
-#
-#     for ser in Serial_Number:
-#         print "insert ip adress", [raw_input()],
-#         #ser.save,
-#
-#     for ip in ip_Adress:
-#         print "ip address:" , [raw_input()],
 #http://localhost:8000/bots/printerinput/
 
 def printer_input(request):
