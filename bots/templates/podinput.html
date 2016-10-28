@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="">
+    {{ pod_form.as_p }}
+    <input type="submit" name="Submit" value="Register" />
+           {%  csrf_token %}
+</form>
+
+</body>
+</html>

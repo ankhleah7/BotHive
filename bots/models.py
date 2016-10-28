@@ -14,8 +14,16 @@ import string
 #ask about string.ascii
 # printer types, plastic type, serial number, number in a pod, number of pods in cluster
 list1 = (('1', 'Mini'), ('2' , 'Taz 5'), ('3', 'Taz 6'), ('4', 'NinjaFlex Mini'))
-list2 = (('1', 'Black ABS'), ('2', 'Green ABS'), ('3', 'Silver ABS'), ('4', 'Black NinjaFlex'), ('5', 'Green NinjaFlex'), ('6', 'Pink NGen Test'))
-list3 = list(string.ascii_uppercase)
+list2 = (('1', 'Black ABS'), ('2', 'Green ABS'), ('3', 'Silver ABS'),
+         ('4', 'Black NinjaFlex'), ('5', 'Green NinjaFlex'),
+         ('6', 'Pink NGen Test'))
+list3 = (('a', 'A'), ('b', 'B'), ('c', 'C'), ('d', 'D'), ('e', 'E'), ('f', 'F'),
+         ('g', 'G'), ('h', 'H'), ('i', 'I'), ('j', 'J'), ('k', 'K'), ('l', 'L'),
+         ('m', 'M'), ('n', 'N'), ('o', 'O'), ('p', 'P'), ('q', 'Q'), ('r', 'R'),
+         ('s', 'S'), ('t', 'T'), ('u', 'U'), ('v', 'V'), ('w', 'W'), ('x', 'X'),
+         ('y', 'Y'), ('z', 'Z'))
+# list4 =
+
 class Printer_Type(models.Model):
     # This is the specific company model EX Lulxbot Taz 5, Taz 6, Mini, See Me CNC delta, etc
     series = models.CharField(default='Mini', choices=list1, max_length=100)
@@ -33,13 +41,13 @@ class Printer_Type(models.Model):
 
 class Pod(models.Model):
     #pod has a letter value, then the number of printers, specific printers, plastic type
-    pod_id = models.CharField(max_length=1)
-    count = models.IntegerField(default = 1 )
+    pod_id = models.CharField(default='A', choices=list3, max_length=1)
+    count = models.IntegerField(default = 1)
     printer_type = models.ForeignKey(Printer_Type)
 
     def __unicode__(self):
         return 'Pod -- {} -- {} -- {}'.format(
-            dict(list1).get(self.series, ''), self.serial, dict(list3).get(self.plastic))
+            dict(list3).get(self.list(string.ascii_uppercase)), ''), self.count, self.printer_type
 
 
 class Cluster (models.Model):

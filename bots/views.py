@@ -42,7 +42,6 @@ def printer_input(request):
     if request.method == 'POST':
         printer_form = Printer_TypeForm(request.POST)
         if printer_form.is_valid():
-            print 'Hello World'
 
             printer_form.save()
 
@@ -51,11 +50,29 @@ def printer_input(request):
     context = {'printer_form': printer_form,}
 
     return render(request, 'printerinput.html' , context)
-    #return HttpResponse("bots are ready to be assigned.")
-        #ip.save,
-#def index(request):
-#    if request.mthod == 'POST':
-#      :  form =
-"""this still uses classes but they don't have to come from the models.
+
+"""
+this still uses classes but they don't have to come from the models.
 the same class function . making a class
-then desgining a meta, then defining a mdel and fields. """
+then desgining a meta, then defining a mdel and fields.
+ """
+
+def pod_order(request):
+    """
+    This view should display how this individual pod grabs printers from the database and
+    saves it in a dictionary that can be edited.
+    :param request:
+    :return:
+    """
+    heading = 'Create a Pod of Printers'
+
+    if request.method == 'POST':
+        pod_order_form = pod_form(request.POST)
+        if pod_order_form is valid:
+            pod_order_form.save
+
+    else:
+        pod_form = pod_order_form()
+    context = {'pod_form': pod_form,}
+
+    return render(request, 'podinput.html' , context)
