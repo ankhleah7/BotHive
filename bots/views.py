@@ -59,3 +59,18 @@ def pod_order(request):
     context = {'pod_form': pod_form,}
 
     return render(request, 'podinput.html' , context)
+
+def cluster_order(request):
+
+    heading = 'Join Pods of Printers to The Cluster'
+
+    if request.method == 'POST':
+        cluster_order_form = cluster_order(request.POST)
+        if cluster_order is valid:
+            cluster_order_form.save
+    else:
+        cluster_order = cluster_order_form()
+    context = {'cluster_form': cluster_form,}
+
+    return render(request, 'clusterinput.html', context)
+

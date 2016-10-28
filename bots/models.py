@@ -13,7 +13,7 @@ list3 = (('1', 'A'), ('2', 'B'), ('3', 'C'), ('4', 'D'), ('5', 'E'), ('6', 'F'),
          ('13', 'M'), ('14', 'N'), ('15', 'O'), ('16', 'P'), ('17', 'Q'), ('18', 'R'),
          ('19', 'S'), ('20', 'T'), ('21', 'U'), ('22', 'V'), ('23', 'W'), ('24', 'X'),
          ('25', 'Y'), ('26', 'Z'))
-# list4 =
+# alt_list3 =list(string.ascii_uppercase)
 
 class Printer_Type(models.Model):
     # This is the specific company model EX Lulxbot Taz 5, Taz 6, Mini, See Me CNC delta, etc
@@ -38,13 +38,17 @@ class Pod(models.Model):
 
     def __unicode__(self):
         return 'Pod -- {} -- {} -- {}'.format(
-            dict(list3).get(self.list(string.ascii_uppercase)), ''), self.count, self.printer_type
+            dict(list3).get(self.list(string.ascii_uppercase)), ''), \
+               self.count, self.printer_type
 
 
-class Cluster (models.Model):
-    # """needs to generate a list, with questions of how large do you want a single cluster, give it a variable range for now of between 1 and 20 and allow you to name that cluster.
-    # Once cluster parameters are established the next question it asks is select the bots you wish to assign to each cluster; this will link to the previous bots page and allow you to select from that list, making a new list and saving said list."""
+class Cluster(models.Model):
+    """gather all the pods with all the printers together into a large group."""
+    pod_hierarchy = models.ForeignKey(Pod)
+    printer_hierarchy = models.ForeignKey(Printer_Type)
+    cluster_count = models.IntegerField(default = 1)
 
-# Link bots page through many to many to jobs
-# file field selects files on a desktop
-    pass
+    def __unicode__(self):
+        return 'Cluster -- {} -- {} --{}'.format(
+            self.pod_hierarchy, self.pod_hierarchy, self.cluster_count
+        )
