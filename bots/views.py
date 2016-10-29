@@ -7,11 +7,9 @@ from bots.forms import ClusterOrder
 from bots.models import Printer_Type
 from bots.models import Pod
 
-
-# S = serial_number
-# B = bot_type
-# I = ip address
-""" if request.method == 'POST:
+"""
+get a http redirect to navigate from printer input -> pod input -> cluster input.
+if request.method == 'POST:
 form = PodOrderForm(request.POST) form is a variable name which just needs
 to be consistent. keep in camal case
 if form.is_valid(): keep this format

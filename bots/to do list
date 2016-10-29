@@ -1,0 +1,5 @@
+1. figure out the home. have it be two buttons one is add a new printer. other is view list
+2. get an http redirect from printers -> pods -> cluster -> homepage.
+3. clean up code to pep8 stands
+eventually. when pinter is attached that is where the printer id generates. and when printer is unplugged its removed
+from the network
