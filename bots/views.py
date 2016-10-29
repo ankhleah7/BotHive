@@ -2,6 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 from bots.forms import Printer_TypeForm
+from bots.forms import PodOrder
+from bots.forms import ClusterOrder
 from bots.models import Printer_Type
 from bots.models import Pod
 
@@ -10,9 +12,11 @@ from bots.models import Pod
 # B = bot_type
 # I = ip address
 """ if request.method == 'POST:
-form = PodOrderForm(request.POST) form is a variable name which just needs to be consistent. keep in camal case
+form = PodOrderForm(request.POST) form is a variable name which just needs
+to be consistent. keep in camal case
 if form.is_valid(): keep this format
-form.save()"""
+form.save()
+"""
 
 def index(request):
     if request.method == 'POST':
@@ -54,12 +58,12 @@ def pod_order(request):
     heading = 'Create a Pod of Printers'
 
     if request.method == 'POST':
-        form = PodOrderForm(request.POST)
+        form = PodOrder(request.POST)
         if form.is_valid:
             form.save()
 
     else:
-        form = PodOrderForm()
+        form = PodOrder()
     context = {'pod_form': form,}
 
     return render(request, 'podinput.html' , context)
@@ -76,8 +80,8 @@ def cluster_order(request):
         if form.is_valid():
             form.save()
     else:
-        cluster_order = cluster_order_form()
-    context = {'cluster_form': cluster_form,}
+        form = ClusterOrder()
+    context = {'cluster_form': form,}
 
     return render(request, 'clusterinput.html', context)
 

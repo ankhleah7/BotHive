@@ -10,12 +10,12 @@ class Printer_TypeForm(forms.ModelForm):
         model = Printer_Type
         fields  = ['serial', 'plastic' , 'series' ]
 
-class pod_order_form(forms.ModelForm):
+class PodOrder(forms.ModelForm):
     class Meta:
         model = Pod
         fields = ['pod_id', 'count', 'printer_type']
 
-class cluster_order_form(forms.ModelForm):
+class ClusterOrder(forms.ModelForm):
     class Meta:
         model = Cluster
         fields = ['pod_hierarchy', 'printer_hierarchy', 'cluster_count']
