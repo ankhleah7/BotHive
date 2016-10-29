@@ -60,6 +60,7 @@ def pod_order(request):
 
     return render(request, 'podinput.html' , context)
 
+
 def cluster_order(request):
 
     heading = 'Join Pods of Printers to The Cluster'
