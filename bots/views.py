@@ -9,7 +9,10 @@ from bots.models import Pod
 # S = serial_number
 # B = bot_type
 # I = ip address
-
+""" if request.method == 'POST:
+form = PodOrderForm(request.POST) form is a variable name which just needs to be consistent. keep in camal case
+if form.is_valid(): keep this format
+form.save()"""
 
 def index(request):
     if request.method == 'POST':
@@ -41,6 +44,7 @@ then desgining a meta, then defining a mdel and fields.
  """
 
 def pod_order(request):
+    #http://localhost:8000/bots/podinput/
     """
     This view should display how this individual pod grabs printers from the database and
     saves it in a dictionary that can be edited.
@@ -50,25 +54,27 @@ def pod_order(request):
     heading = 'Create a Pod of Printers'
 
     if request.method == 'POST':
-        pod_order_form = pod_form(request.POST)
-        if pod_order_form is valid:
-            pod_order_form.save
+        form = PodOrderForm(request.POST)
+        if form.is_valid:
+            form.save()
 
     else:
-        pod_form = pod_order_form()
-    context = {'pod_form': pod_form,}
+        form = PodOrderForm()
+    context = {'pod_form': form,}
 
     return render(request, 'podinput.html' , context)
 
 
 def cluster_order(request):
 
+    #http://localhost:8000/bots/clusterinput/
+
     heading = 'Join Pods of Printers to The Cluster'
 
     if request.method == 'POST':
-        cluster_order_form = cluster_order(request.POST)
-        if cluster_order is valid:
-            cluster_order_form.save
+        form = ClusterOrder(request.POST)
+        if form.is_valid():
+            form.save()
     else:
         cluster_order = cluster_order_form()
     context = {'cluster_form': cluster_form,}
